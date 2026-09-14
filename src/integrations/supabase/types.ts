@@ -14,7 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      challenge_completions: {
+        Row: {
+          challenge_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          challenge_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          challenge_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          co2_saved: number
+          created_at: string
+          display_name: string | null
+          id: string
+          plastic_avoided: number
+          points: number
+          streak: number
+          water_saved: number
+        }
+        Insert: {
+          avatar_url?: string | null
+          co2_saved?: number
+          created_at?: string
+          display_name?: string | null
+          id: string
+          plastic_avoided?: number
+          points?: number
+          streak?: number
+          water_saved?: number
+        }
+        Update: {
+          avatar_url?: string | null
+          co2_saved?: number
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          plastic_avoided?: number
+          points?: number
+          streak?: number
+          water_saved?: number
+        }
+        Relationships: []
+      }
+      scan_logs: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          points: number
+          result_key: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          points?: number
+          result_key: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          points?: number
+          result_key?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
