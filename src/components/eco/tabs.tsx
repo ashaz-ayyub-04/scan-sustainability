@@ -21,7 +21,7 @@ const BADGE_ICONS = {
 export function ChallengesTab() {
   const { done, points } = useEco();
   return (
-    <div className="pb-44">
+    <div className="pb-56">
       <header className="px-6 pt-7 pb-4">
         <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-moss">
           Missions
@@ -66,7 +66,7 @@ export function ChallengesTab() {
 export function LogTab() {
   const { log } = useEco();
   return (
-    <div className="pb-44">
+    <div className="pb-56">
       <header className="px-6 pt-7 pb-4">
         <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-moss">
           Field log
@@ -116,7 +116,7 @@ export function LogTab() {
 export function ProfileTab() {
   const { points, streak, co2, water, plastic, score } = useEco();
   return (
-    <div className="pb-44">
+    <div className="pb-56">
       <header className="px-6 pt-7 pb-4 flex items-center gap-4">
         <div className="size-14 rounded-full bg-moss grid place-items-center">
           <span className="font-display text-xl font-semibold text-cream">
