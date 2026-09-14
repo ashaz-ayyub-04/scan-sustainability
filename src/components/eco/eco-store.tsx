@@ -53,8 +53,7 @@ export function EcoProvider({ children }: { children: ReactNode }) {
   const [scansLogged, setScansLogged] = useState(0);
 
   const startScan = useCallback(() => {
-    const next = SCAN_RESULTS[scanIndex % SCAN_RESULTS.length];
-    setScanIndex((i) => i + 1);
+    const next = SCAN_RESULTS[scanIndex % SCAN_RESULTS.length]!;
     setScan(next);
     setPhase("capturing");
     window.setTimeout(() => setPhase("analyzing"), 700);
