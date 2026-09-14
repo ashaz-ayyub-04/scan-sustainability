@@ -1,7 +1,22 @@
-import { Leaf, Trophy } from "lucide-react";
+import {
+  Droplets,
+  Flame,
+  Leaf,
+  Recycle,
+  Sprout,
+  Trophy,
+} from "lucide-react";
 import { BADGES, CHALLENGES } from "@/lib/eco-data";
 import { useEco } from "./eco-store";
 import { ChallengeRow } from "./home";
+
+const BADGE_ICONS = {
+  sprout: Sprout,
+  flame: Flame,
+  recycle: Recycle,
+  droplets: Droplets,
+  trophy: Trophy,
+} as const;
 
 export function ChallengesTab() {
   const { done, points } = useEco();

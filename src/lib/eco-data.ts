@@ -142,15 +142,15 @@ export const SEED_LOG: LogEntry[] = [
 ];
 
 export interface Badge {
-  emoji: string;
+  id: "sprout" | "flame" | "recycle" | "droplets" | "trophy";
   name: string;
   unlocked: boolean;
 }
 
 export const BADGES: Badge[] = [
-  { emoji: "🌱", name: "First scan", unlocked: true },
-  { emoji: "🔥", name: "7-day streak", unlocked: true },
-  { emoji: "♻️", name: "Recycler x10", unlocked: true },
-  { emoji: "💧", name: "Water saver", unlocked: false },
-  { emoji: "🏆", name: "Neighborhood top 10", unlocked: false },
+  { id: "sprout", name: "First scan", unlocked: true },
+  { id: "flame", name: "7-day streak", unlocked: true },
+  { id: "recycle", name: "Recycler x10", unlocked: true },
+  { id: "droplets", name: "Water saver", unlocked: false },
+  { id: "trophy", name: "Neighborhood top 10", unlocked: false },
 ];
