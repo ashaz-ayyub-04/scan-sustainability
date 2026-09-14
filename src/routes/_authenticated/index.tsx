@@ -1,11 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useRouteContext } from "@tanstack/react-router";
 import { ClipboardList, Home, Target, User } from "lucide-react";
 import { EcoProvider, useEco, type Tab } from "@/components/eco/eco-store";
 import { ChallengesPreview, ScoreCard } from "@/components/eco/home";
 import { ChallengesTab, LogTab, ProfileTab } from "@/components/eco/tabs";
 import { ScanOverlay } from "@/components/eco/scan";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_authenticated/")({
   head: () => ({
     meta: [
       { title: "EcoLens — Your AI Sustainability Assistant" },
@@ -27,8 +27,15 @@ export const Route = createFileRoute("/")({
   component: EcoLens,
 });
 
+function greeting() {
+  const h = new Date().getHours();
+  if (h < 12) return "Good morning";
+  if (h < 18) return "Good afternoon";
+  return "Good evening";
+}
+
 function HomeTab() {
-  const { streak } = useEco();
+  const { streak, name } = useEco();
   return (
     <div>
       <header className="px-6 pt-7 pb-4 flex items-start justify-between">
@@ -37,7 +44,7 @@ function HomeTab() {
             EcoLens
           </p>
           <h1 className="font-display text-[27px] leading-[1.05] font-semibold text-ink mt-1 text-balance">
-            Good morning, Fern
+            {greeting()}, {name.split(" ")[0]}
           </h1>
         </div>
         <div className="flex items-center gap-1.5 bg-sand rounded-full px-3 py-2">
@@ -118,8 +125,9 @@ function Shell() {
 }
 
 function EcoLens() {
+  const { user } = useRouteContext({ from: "/_authenticated" });
   return (
-    <EcoProvider>
+    <EcoProvider userId={user.id} email={user.email ?? ""}>
       <Shell />
     </EcoProvider>
   );
