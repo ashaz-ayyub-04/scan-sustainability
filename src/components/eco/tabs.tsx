@@ -136,7 +136,7 @@ export function ProfileTab() {
       <section className="px-6 grid grid-cols-2 gap-3">
         {[
           { label: "Eco score", value: `${score}/100` },
-          { label: "Day streak", value: `${streak} 🔥` },
+          { label: "Day streak", value: `${streak}` },
           { label: "CO₂ saved", value: `${co2} kg` },
           { label: "Water saved", value: `${water} L` },
         ].map((s) => (
@@ -159,24 +159,27 @@ export function ProfileTab() {
           Badges
         </h2>
         <div className="grid grid-cols-3 gap-3">
-          {BADGES.map((b) => (
-            <div
-              key={b.name}
-              className={`rounded-2xl p-4 text-center ring-1 ${
-                b.unlocked
-                  ? "bg-cream ring-ink/5"
-                  : "bg-sand/60 ring-ink/5 opacity-50"
-              }`}
-            >
-              <span className="text-2xl">{b.emoji}</span>
-              <p className="text-[11px] font-semibold text-ink mt-1.5 leading-tight">
-                {b.name}
-              </p>
-              <p className="text-[9px] font-semibold uppercase tracking-[0.1em] text-ink/40 mt-1">
-                {b.unlocked ? "Unlocked" : "Locked"}
-              </p>
-            </div>
-          ))}
+          {BADGES.map((b) => {
+            const Icon = BADGE_ICONS[b.id];
+            return (
+              <div
+                key={b.name}
+                className={`rounded-2xl p-4 text-center ring-1 ${
+                  b.unlocked
+                    ? "bg-cream ring-ink/5"
+                    : "bg-sand/60 ring-ink/5 opacity-50"
+                }`}
+              >
+                <Icon className="size-6 text-moss mx-auto" />
+                <p className="text-[11px] font-semibold text-ink mt-1.5 leading-tight">
+                  {b.name}
+                </p>
+                <p className="text-[9px] font-semibold uppercase tracking-[0.1em] text-ink/40 mt-1">
+                  {b.unlocked ? "Unlocked" : "Locked"}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

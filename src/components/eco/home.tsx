@@ -138,7 +138,7 @@ export function ChallengeRow({
 export function ChallengesPreview() {
   const { setTab } = useEco();
   return (
-    <section className="px-6 pt-6 pb-44">
+    <section className="px-6 pt-6 pb-56">
       <div className="flex items-end justify-between mb-3">
         <h2 className="font-display text-xl font-semibold text-ink text-balance">
           Today's challenges
